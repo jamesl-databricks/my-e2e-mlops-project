@@ -8,8 +8,6 @@ targets:
   dev:
     mode: development
     default: true
-    workspace:
-      host: ${WORKSPACE_HOST_NAME}
     variables:
       catalog_name: pedroz_e2edata_dev
       environment: dev
@@ -43,8 +41,6 @@ targets:
 
   prod:
     mode: production
-    workspace:
-      host: ${WORKSPACE_HOST_NAME}
     variables:
       catalog_name: pedroz_e2edata_prod
       environment: prod
