@@ -7,7 +7,7 @@ on:
       - master
 
 env:
-  DATABRICKS_HOST: https://adb-4181970831265458.18.azuredatabricks.net/
+  DATABRICKS_HOST: ${{ secrets.WORKSPACE_HOST_NAME }}
   PYTHON_VERSION: '3.9'
 
 jobs:
