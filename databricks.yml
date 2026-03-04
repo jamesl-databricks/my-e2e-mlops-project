@@ -1,9 +1,7 @@
 bundle:
   name: e2e-data-project
-
 include:
-  - resources/*.yml
-
+- resources/*.yml
 targets:
   dev:
     mode: development
@@ -11,68 +9,68 @@ targets:
     workspace:
       root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
     variables:
-      catalog_name: pedroz_e2edata_dev
+      catalog_name: dbacademy
       environment: dev
-    # Override permissions for dev environment
+      schema_name: labuser12511822_1772585405
     resources:
       jobs:
         data_ingestion_job:
           permissions:
-            - level: "CAN_MANAGE"
-              group_name: "PowerUsers"
-            - level: "CAN_MANAGE_RUN"
-              group_name: "Developers"
+          - level: CAN_MANAGE
+            group_name: PowerUsers
+          - level: CAN_MANAGE_RUN
+            group_name: Developers
         model_training_job:
           permissions:
-            - level: "CAN_MANAGE"
-              group_name: "PowerUsers"
-            - level: "CAN_MANAGE_RUN"
-              group_name: "Developers"
+          - level: CAN_MANAGE
+            group_name: PowerUsers
+          - level: CAN_MANAGE_RUN
+            group_name: Developers
         model_deployment_job:
           permissions:
-            - level: "CAN_MANAGE"
-              group_name: "PowerUsers"
-            - level: "CAN_MANAGE_RUN"
-              group_name: "Developers"
+          - level: CAN_MANAGE
+            group_name: PowerUsers
+          - level: CAN_MANAGE_RUN
+            group_name: Developers
         batch_inference_job:
           permissions:
-            - level: "CAN_MANAGE"
-              group_name: "PowerUsers"
-            - level: "CAN_MANAGE_RUN"
-              group_name: "Developers"
-
+          - level: CAN_MANAGE
+            group_name: PowerUsers
+          - level: CAN_MANAGE_RUN
+            group_name: Developers
   prod:
     mode: production
     workspace:
       root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
     variables:
-      catalog_name: pedroz_e2edata_prod
+      catalog_name: dbacademy
       environment: prod
-    
-    # Override permissions for prod environment (only PowerUsers group)
+      schema_name: labuser12511822_1772585405
     resources:
       jobs:
         data_ingestion_job:
           permissions:
-            - level: "CAN_MANAGE"
-              group_name: "PowerUsers"
+          - level: CAN_MANAGE
+            group_name: PowerUsers
         model_training_job:
           permissions:
-            - level: "CAN_MANAGE"
-              group_name: "PowerUsers"
+          - level: CAN_MANAGE
+            group_name: PowerUsers
         model_deployment_job:
           permissions:
-            - level: "CAN_MANAGE"
-              group_name: "PowerUsers"
+          - level: CAN_MANAGE
+            group_name: PowerUsers
         batch_inference_job:
           permissions:
-            - level: "CAN_MANAGE"
-              group_name: "PowerUsers"
-
+          - level: CAN_MANAGE
+            group_name: PowerUsers
 variables:
   catalog_name:
-    description: "Name of the Unity Catalog to use"
-    default: "default_catalog"
+    description: Name of the Unity Catalog to use
+    default: dbacademy
   environment:
-    description: "Environment name (dev/prod)"
-    default: "dev"
+    description: Environment name (dev/prod)
+    default: dev
+  schema_name:
+    description: Name of the schema to use within the catalog
+    default: labuser12511822_1772585405
