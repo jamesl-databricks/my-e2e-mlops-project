@@ -9,7 +9,7 @@ resources:
         no_alert_for_skipped_runs: false
       parameters:
       - name: model_name
-        default: ${var.catalog_name}.default.iris_model
+        default: ${var.catalog_name}.${var.schema_name}.iris_model
       - name: model_version
         default: '1'
       - name: schema_name
